@@ -85,7 +85,7 @@ Track volumes  ·  Log reading progress  ·  Estimate collection value  ·  Plan
 ### 1 — Clone the repository
 
 ```bash
-git clone https://github.com/your-username/bookcheck.git
+git clone https://github.com/pichaya6731503023/bookcheck.git
 cd bookcheck
 flutter pub get
 ```
