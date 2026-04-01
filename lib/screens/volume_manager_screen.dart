@@ -296,7 +296,7 @@ class _VolumeManagerScreenState extends State<VolumeManagerScreen> {
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
-              boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.05), spreadRadius: 1, blurRadius: 10, offset: const Offset(0, 5))],
+              boxShadow: [BoxShadow(color: Colors.grey.withValues(alpha: 0.05), spreadRadius: 1, blurRadius: 10, offset: const Offset(0, 5))],
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,7 +307,7 @@ class _VolumeManagerScreenState extends State<VolumeManagerScreen> {
                     width: 90, height: 130,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100, borderRadius: BorderRadius.circular(12),
-                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 8, offset: const Offset(0, 2))],
+                      boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 8, offset: const Offset(0, 2))],
                       image: _imageBase64 != null ? DecorationImage(image: _getImageProvider(_imageBase64)!, fit: BoxFit.cover) : null,
                     ),
                     child: _isUploading 
@@ -323,7 +323,7 @@ class _VolumeManagerScreenState extends State<VolumeManagerScreen> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: globals.mainColor.withOpacity(0.1),
+                          color: globals.mainColor.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(_genre, style: TextStyle(fontSize: 12, color: globals.mainColor, fontWeight: FontWeight.bold)),
@@ -436,7 +436,7 @@ class _VolumeManagerScreenState extends State<VolumeManagerScreen> {
                       color: bgColor,
                       borderRadius: BorderRadius.circular(12), // Round Square
                       border: border,
-                      boxShadow: isOwned ? [BoxShadow(color: globals.mainColor.withOpacity(0.4), blurRadius: 4, offset: const Offset(0, 2))] : null,
+                      boxShadow: isOwned ? [BoxShadow(color: globals.mainColor.withValues(alpha: 0.4), blurRadius: 4, offset: const Offset(0, 2))] : null,
                     ),
                     child: Stack(
                       children: [
@@ -483,7 +483,7 @@ class _VolumeManagerScreenState extends State<VolumeManagerScreen> {
         decoration: BoxDecoration(
           color: isActive ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: isActive ? [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 4, offset: const Offset(0, 2))] : null,
+          boxShadow: isActive ? [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 4, offset: const Offset(0, 2))] : null,
         ),
         child: Center(
           child: Text(

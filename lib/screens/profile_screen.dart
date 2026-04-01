@@ -173,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return ListTile(
       leading: Container(
         padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: color.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(10)),
         child: Icon(icon, color: color),
       ),
       title: Text(title, style: TextStyle(fontWeight: FontWeight.bold, color: isDestructive ? Colors.red : Colors.black87)),
@@ -188,37 +188,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Text(globals.isThai ? 'เปลี่ยนภาษา' : 'Change Language'),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            title: const Text("English"),
-            leading: Radio(
-                value: false,
-                groupValue: globals.isThai,
-                activeColor: globals.mainColor,
-                onChanged: (val) async {
-                  await globals.saveLanguage(false);
-                  setState(() {});
-                  if (mounted) Navigator.pop(context);
-                }),
-          ),
-          ListTile(
-            title: const Text("Thai (ไทย)"),
-            leading: Radio(
-                value: true,
-                groupValue: globals.isThai,
-                activeColor: globals.mainColor,
-                onChanged: (val) async {
-                  await globals.saveLanguage(true);
-                  setState(() {});
-                  if (mounted) Navigator.pop(context);
-                }),
-          ),
-        ],
+      content: RadioGroup<bool>(
+        groupValue: globals.isThai,
+        onChanged: (val) async {
+          if (val == null) return;
+          await globals.saveLanguage(val);
+          setState(() {});
+          if (mounted) Navigator.pop(context);
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            RadioListTile<bool>(
+              title: const Text("English"),
+              value: false,
+            ),
+            RadioListTile<bool>(
+              title: const Text("Thai (ไทย)"),
+              value: true,
+            ),
+          ],
+        ),
       ),
     );
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -243,7 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             Container(
               padding: const EdgeInsets.all(4), // Border
-              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: globals.mainColor.withOpacity(0.2), width: 2)),
+              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: globals.mainColor.withValues(alpha: 0.2), width: 2)),
               child: CircleAvatar(
                 radius: 40,
                 backgroundColor: globals.mainColor,
@@ -310,7 +305,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(colors: [Colors.amber.shade400, Colors.amber.shade700]),
                         borderRadius: BorderRadius.circular(20),
-                        boxShadow: [BoxShadow(color: Colors.amber.withOpacity(0.4), blurRadius: 10, offset: const Offset(0, 4))]
+                        boxShadow: [BoxShadow(color: Colors.amber.withValues(alpha: 0.4), blurRadius: 10, offset: const Offset(0, 4))]
                       ),
                       child: Column(
                         children: [
@@ -337,7 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           backgroundColor: Colors.teal, 
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                           elevation: 4,
-                          shadowColor: Colors.teal.withOpacity(0.4),
+                          shadowColor: Colors.teal.withValues(alpha: 0.4),
                         ),
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => const ShoppingListScreen()));
@@ -361,13 +356,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
-          boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.05), spreadRadius: 2, blurRadius: 10)],
+          boxShadow: [BoxShadow(color: Colors.grey.withValues(alpha: 0.05), spreadRadius: 2, blurRadius: 10)],
         ),
         child: Column(
           children: [
             Container(
               padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(color: color.withOpacity(0.1), shape: BoxShape.circle),
+              decoration: BoxDecoration(color: color.withValues(alpha: 0.1), shape: BoxShape.circle),
               child: Icon(icon, color: color, size: 24),
             ),
             const SizedBox(height: 12),

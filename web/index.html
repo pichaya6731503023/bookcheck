@@ -1,38 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
+    Base href is replaced by --base-href at build time.
+    Do not remove this tag.
   -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <!-- iOS meta tags & icons -->
+  <!-- SEO -->
+  <meta name="description" content="Bookcheck — จัดการคอลเลกชันมังงะและการ์ตูนส่วนตัว ติดตามเล่มที่มี อ่านแล้ว และสถานะชุด">
+  <meta name="keywords" content="bookcheck, manga, collection, tracker, flutter, ติดตามมังงะ">
+  <meta name="author" content="Bookcheck">
+  <meta name="theme-color" content="#CC0099">
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bookcheck — Manga Collection Tracker">
+  <meta property="og:description" content="จัดการคอลเลกชันมังงะและการ์ตูนส่วนตัว ติดตามเล่มที่มี อ่านแล้ว และสถานะชุด">
+  <meta property="og:image" content="icons/Icon-512.png">
+
+  <!-- PWA / iOS -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="bookcheck">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bookcheck">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png">
 
-  <title>bookcheck</title>
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
+
+  <title>Bookcheck — Manga Collection Tracker</title>
+
+  <style>
+    /* Loading screen while Flutter initializes */
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #loading-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #CC0099, #FF4DCD);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 8px 32px rgba(204, 0, 153, 0.3);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 8px 32px rgba(204, 0, 153, 0.3); }
+      50%       { transform: scale(1.05); box-shadow: 0 12px 40px rgba(204, 0, 153, 0.5); }
+    }
+
+    #loading-text {
+      color: #CC0099;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    #loading-sub {
+      color: #aaa;
+      font-size: 13px;
+      margin-top: -12px;
+    }
+
+    #loading-bar {
+      width: 160px;
+      height: 3px;
+      background: #f0e6f6;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    #loading-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #CC0099, #FF4DCD);
+      border-radius: 999px;
+      animation: load 2s ease-in-out infinite;
+    }
+
+    @keyframes load {
+      0%   { width: 0%; margin-left: 0%; }
+      50%  { width: 70%; margin-left: 0%; }
+      100% { width: 0%; margin-left: 100%; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Loading screen (shown while Flutter engine boots) -->
+  <div id="loading">
+    <div id="loading-logo">📚</div>
+    <div id="loading-text">Bookcheck</div>
+    <div id="loading-sub">Manga Collection Tracker</div>
+    <div id="loading-bar">
+      <div id="loading-progress"></div>
+    </div>
+  </div>
+
+  <script>
+    // Hide loading screen once Flutter is ready
+    window.addEventListener('flutter-first-frame', function() {
+      const loading = document.getElementById('loading');
+      if (loading) {
+        loading.style.opacity = '0';
+        loading.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => loading.remove(), 400);
+      }
+    });
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

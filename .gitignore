@@ -1,4 +1,13 @@
-# Miscellaneous
+# ============================================================
+# Bookcheck — .gitignore
+# ============================================================
+
+# --- SECURITY: Environment & Secrets (NEVER COMMIT) ---
+.env
+*.env
+!.env.example
+
+# --- Miscellaneous ---
 *.class
 *.log
 *.pyc
@@ -12,18 +21,16 @@
 .swiftpm/
 migrate_working_dir/
 
-# IntelliJ related
+# --- IntelliJ related ---
 *.iml
 *.ipr
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# --- VS Code (optional, uncomment if you don't want to share launch config) ---
+# .vscode/
 
-# Flutter/Dart/Pub related
+# --- Flutter/Dart/Pub related ---
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
@@ -33,13 +40,18 @@ migrate_working_dir/
 /build/
 /coverage/
 
-# Symbolication related
+# --- Symbolication related ---
 app.*.symbols
 
-# Obfuscation related
+# --- Obfuscation related ---
 app.*.map.json
 
-# Android Studio will place build artifacts here
+# --- Android Studio build artifacts ---
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# --- NOTE: google-services.json is intentionally NOT ignored ---
+# Firebase designed this file to be safe for version control.
+# It does not contain secret keys — only project identifiers.
+# See: https://firebase.google.com/docs/projects/learn-more#config-files-objects

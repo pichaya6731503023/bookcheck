@@ -37,6 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Navigator.pop(context); 
       }
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.message ?? (globals.isThai ? 'สมัครสมาชิกไม่สำเร็จ' : 'Registration failed'))),
       );

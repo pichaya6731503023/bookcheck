@@ -23,13 +23,13 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      if (mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
-        );
-      }
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.message ?? (globals.isThai ? 'เข้าสู่ระบบล้มเหลว' : 'Login failed'))),
       );
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [globals.mainColor.withOpacity(0.8), globals.mainColor.withOpacity(0.1), Colors.white],
+            colors: [globals.mainColor.withValues(alpha: 0.8), globals.mainColor.withValues(alpha: 0.1), Colors.white],
           ),
         ),
         child: Center(
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: globals.mainColor.withOpacity(0.1),
+                        color: globals.mainColor.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(Icons.menu_book_rounded, size: 48, color: globals.mainColor),

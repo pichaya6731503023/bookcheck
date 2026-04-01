@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: CircleAvatar(
               radius: 16,
-              backgroundColor: globals.mainColor.withOpacity(0.1),
+              backgroundColor: globals.mainColor.withValues(alpha: 0.1),
               child: Icon(Icons.person, size: 20, color: globals.mainColor),
             ),
             onPressed: () {
@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Container(
               decoration: BoxDecoration(
-                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4))]
+                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4))]
               ),
               child: TextField(
                 controller: _searchController,
@@ -265,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.1), spreadRadius: 1, blurRadius: 6, offset: const Offset(0, 2))],
+                boxShadow: [BoxShadow(color: Colors.grey.withValues(alpha: 0.1), spreadRadius: 1, blurRadius: 6, offset: const Offset(0, 2))],
               ),
               child: Material(
                 color: Colors.transparent,
@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200, 
                             borderRadius: BorderRadius.circular(8),
-                            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 4)],
+                            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 4)],
                             image: imageUrl != null ? DecorationImage(image: _getImageProvider(imageUrl)!, fit: BoxFit.cover) : null,
                           ),
                           child: imageUrl == null ? Center(child: Text(data['title'][0].toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[500]))) : null,

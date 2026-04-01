@@ -95,8 +95,8 @@ class ShoppingListScreen extends StatelessWidget {
                         children: [
                           Text(
                             globals.isThai 
-                              ? "ขาดอีก ${missingList.fold(0, (sum, item) => sum + (item['missing'] as List).length)} เล่ม"
-                              : "Missing ${missingList.fold(0, (sum, item) => sum + (item['missing'] as List).length)} vols",
+                              ? "ขาดอีก ${missingList.fold(0, (acc, item) => acc + (item['missing'] as List).length)} เล่ม"
+                              : "Missing ${missingList.fold(0, (acc, item) => acc + (item['missing'] as List).length)} vols",
                             style: TextStyle(color: Colors.amber[900], fontWeight: FontWeight.bold),
                           ),
                           Text(
