@@ -1,5 +1,13 @@
 {
   "projects": {
     "default": "bookcheck-app"
+  },
+  "targets": {
+    "bookcheck-app": {
+      "hosting": {
+        "app": ["bookcheck-app"],
+        "landing": ["bookcheck-landing"]
+      }
+    }
   }
 }

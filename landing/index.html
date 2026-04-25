@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <!-- SEO -->
+  <title>Bookcheck — Manga & Comic Collection Tracker</title>
+  <meta name="description" content="Track your manga and comic collection with Bookcheck. Manage owned volumes, reading progress, collection value, and auto-generate shopping lists. Free and open-source.">
+  <meta name="keywords" content="bookcheck, manga, comic, collection, tracker, flutter, firebase, มังงะ, ติดตามมังงะ">
+  <meta name="author" content="Bookcheck">
+  <meta name="theme-color" content="#CC0099">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bookcheck — Manga & Comic Collection Tracker">
+  <meta property="og:description" content="Track your manga and comic collection. Manage volumes, reading progress, and auto-generate shopping lists.">
+  <meta property="og:image" content="assets/mockup-phone.png">
+  <meta property="og:url" content="https://bookcheck-app.web.app">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bookcheck — Manga Collection Tracker">
+  <meta name="twitter:description" content="Track your manga and comic collection with Bookcheck.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo.png" alt="Bookcheck" width="36" height="36">
+        <span>Bookcheck</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#features" class="nav-link">
+          <span class="lang-en">Features</span>
+          <span class="lang-th">ฟีเจอร์</span>
+        </a>
+        <a href="#how-it-works" class="nav-link">
+          <span class="lang-en">How It Works</span>
+          <span class="lang-th">วิธีใช้งาน</span>
+        </a>
+        <a href="#preview" class="nav-link">
+          <span class="lang-en">Preview</span>
+          <span class="lang-th">ตัวอย่าง</span>
+        </a>
+        <a href="#tech" class="nav-link">
+          <span class="lang-en">Tech Stack</span>
+          <span class="lang-th">เทคโนโลยี</span>
+        </a>
+        <a href="#faq" class="nav-link">
+          <span class="lang-en">FAQ</span>
+          <span class="lang-th">คำถาม</span>
+        </a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="th">TH</button>
+        </div>
+        <a href="https://bookcheck-app.web.app" class="btn btn-primary nav-cta">
+          <span class="lang-en">Launch App</span>
+          <span class="lang-th">เปิดแอป</span>
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="hero-particles"></canvas>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span class="lang-en">Open Source · Free Forever</span>
+          <span class="lang-th">โอเพนซอร์ส · ฟรีตลอดไป</span>
+        </div>
+
+        <h1>
+          <span class="lang-en">Your Manga Collection,<br><span class="text-gradient">Organized.</span></span>
+          <span class="lang-th">จัดระเบียบคอลเลกชัน<br><span class="text-gradient">มังงะของคุณ</span></span>
+        </h1>
+
+        <p class="hero-description">
+          <span class="lang-en">Track what you own, what you've read, and what you still need to buy. All in one beautiful, cross-platform app.</span>
+          <span class="lang-th">ติดตามเล่มที่มี เล่มที่อ่านแล้ว และเล่มที่ต้องซื้อเพิ่ม ครบจบในแอปเดียว ใช้ได้ทุกแพลตฟอร์ม</span>
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://bookcheck-app.web.app" class="btn btn-primary">
+            <span class="lang-en">Launch App</span>
+            <span class="lang-th">เปิดแอป</span>
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </a>
+          <a href="#features" class="btn btn-ghost">
+            <span class="lang-en">Learn More</span>
+            <span class="lang-th">ดูรายละเอียด</span>
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value text-gradient">100%</span>
+            <span class="hero-stat-label">
+              <span class="lang-en">Free & Open Source</span>
+              <span class="lang-th">ฟรีและโอเพนซอร์ส</span>
+            </span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value text-gradient">2+</span>
+            <span class="hero-stat-label">
+              <span class="lang-en">Platforms</span>
+              <span class="lang-th">แพลตฟอร์ม</span>
+            </span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value text-gradient">∞</span>
+            <span class="hero-stat-label">
+              <span class="lang-en">Series to Track</span>
+              <span class="lang-th">ซีรีส์ที่ติดตามได้</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          src="assets/mockup-phone.png"
+          alt="Bookcheck App Interface"
+          class="hero-mockup"
+          width="480"
+          height="480"
+          loading="eager"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES
+       ============================================================ -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">
+          <span class="lang-en">Features</span>
+          <span class="lang-th">ฟีเจอร์</span>
+        </span>
+        <h2>
+          <span class="lang-en">Everything You Need to<br><span class="text-gradient">Manage Your Collection</span></span>
+          <span class="lang-th">ครบทุกฟีเจอร์ที่ต้องการ<br><span class="text-gradient">จัดการคอลเลกชัน</span></span>
+        </h2>
+        <p class="section-subtitle">
+          <span class="lang-en">Powerful features designed for manga and comic collectors who take their hobby seriously.</span>
+          <span class="lang-th">ฟีเจอร์ทรงพลังออกแบบมาสำหรับนักสะสมมังงะและการ์ตูนตัวจริง</span>
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card glass-card reveal">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path><line x1="8" y1="7" x2="16" y2="7"></line><line x1="8" y1="11" x2="13" y2="11"></line></svg></div>
+          <h3>
+            <span class="lang-en">Collection Management</span>
+            <span class="lang-th">จัดการคอลเลกชัน</span>
+          </h3>
+          <p>
+            <span class="lang-en">Add, organize, and search your manga series with cover art, genres, publication status, and personal notes.</span>
+            <span class="lang-th">เพิ่ม จัดระเบียบ และค้นหาซีรีส์มังงะพร้อมปกหนังสือ แนว สถานะ และบันทึกส่วนตัว</span>
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card glass-card reveal">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M17 14l2 2 4-4"></path></svg></div>
+          <h3>
+            <span class="lang-en">Volume Tracking</span>
+            <span class="lang-th">ติดตามเล่ม</span>
+          </h3>
+          <p>
+            <span class="lang-en">Two-mode grid to independently track owned and read volumes with beautiful visual indicators and animations.</span>
+            <span class="lang-th">ระบบกริดสองโหมดติดตามเล่มที่มีและอ่านแล้วแยกกัน พร้อมภาพและแอนิเมชัน</span>
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card glass-card reveal">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+          <h3>
+            <span class="lang-en">Financial Overview</span>
+            <span class="lang-th">ภาพรวมค่าใช้จ่าย</span>
+          </h3>
+          <p>
+            <span class="lang-en">See total collection value, per-series costs, and volume-specific pricing overrides at a glance.</span>
+            <span class="lang-th">ดูมูลค่ารวมคอลเลกชัน ต้นทุนต่อซีรีส์ และกำหนดราคาเฉพาะเล่มได้</span>
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card glass-card reveal">
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div>
+          <h3>
+            <span class="lang-en">Smart Shopping List</span>
+            <span class="lang-th">รายการซื้ออัจฉริยะ</span>
+          </h3>
+          <p>
+            <span class="lang-en">Auto-generated list of missing volumes with estimated purchase cost — never miss a volume again.</span>
+            <span class="lang-th">รายการเล่มที่ขาดพร้อมประมาณราคาซื้อ สร้างอัตโนมัติ ไม่พลาดอีกต่อไป</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       ============================================================ -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">
+          <span class="lang-en">How It Works</span>
+          <span class="lang-th">วิธีใช้งาน</span>
+        </span>
+        <h2>
+          <span class="lang-en">Get Started in <span class="text-gradient">3 Simple Steps</span></span>
+          <span class="lang-th">เริ่มต้นง่ายๆ <span class="text-gradient">แค่ 3 ขั้นตอน</span></span>
+        </h2>
+        <p class="section-subtitle">
+          <span class="lang-en">From zero to fully organized in minutes. No complex setup required.</span>
+          <span class="lang-th">จากศูนย์ถึงจัดเต็มในไม่กี่นาที ไม่ต้องตั้งค่าอะไรซับซ้อน</span>
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+            <h3>
+              <span class="lang-en">Create Account</span>
+              <span class="lang-th">สร้างบัญชี</span>
+            </h3>
+            <p>
+              <span class="lang-en">Sign up with email or browse as a guest — no commitment needed to explore.</span>
+              <span class="lang-th">สมัครด้วยอีเมลหรือเข้าชมแบบ Guest ไม่ต้องสมัครก็ลองได้เลย</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+            <h3>
+              <span class="lang-en">Add Your Series</span>
+              <span class="lang-th">เพิ่มซีรีส์ของคุณ</span>
+            </h3>
+            <p>
+              <span class="lang-en">Add manga series with cover art, set total volumes, genre, and configure pricing.</span>
+              <span class="lang-th">เพิ่มซีรีส์มังงะพร้อมปก ตั้งจำนวนเล่ม แนว และกำหนดราคา</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+            <h3>
+              <span class="lang-en">Track Everything</span>
+              <span class="lang-th">ติดตามทุกอย่าง</span>
+            </h3>
+            <p>
+              <span class="lang-en">Mark owned and read volumes, view collection stats, and auto-generate your shopping list.</span>
+              <span class="lang-th">เช็คเล่มที่มีและอ่านแล้ว ดูสถิติคอลเลกชัน และสร้างรายการซื้ออัตโนมัติ</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       APP PREVIEW
+       ============================================================ -->
+  <section id="preview">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">
+          <span class="lang-en">Preview</span>
+          <span class="lang-th">ตัวอย่างแอป</span>
+        </span>
+        <h2>
+          <span class="lang-en">See It <span class="text-gradient">In Action</span></span>
+          <span class="lang-th">ดู<span class="text-gradient">ตัวอย่างการใช้งาน</span></span>
+        </h2>
+        <p class="section-subtitle">
+          <span class="lang-en">A beautiful, intuitive interface designed for collectors who care about details.</span>
+          <span class="lang-th">อินเทอร์เฟซสวยงาม ใช้งานง่าย ออกแบบมาสำหรับนักสะสมที่ใส่ใจรายละเอียด</span>
+        </p>
+      </div>
+
+      <div class="preview-wrapper reveal" style="position: relative;">
+        <img
+          src="assets/mockup-desktop.png"
+          alt="Bookcheck Dashboard Preview"
+          width="1200"
+          height="800"
+          loading="lazy"
+        >
+        <div class="preview-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TECH STACK
+       ============================================================ -->
+  <section id="tech">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">
+          <span class="lang-en">Tech Stack</span>
+          <span class="lang-th">เทคโนโลยี</span>
+        </span>
+        <h2>
+          <span class="lang-en">Built with <span class="text-gradient">Modern Tech</span></span>
+          <span class="lang-th">สร้างด้วย<span class="text-gradient">เทคโนโลยีทันสมัย</span></span>
+        </h2>
+        <p class="section-subtitle">
+          <span class="lang-en">Powered by industry-leading tools for performance, reliability, and developer experience.</span>
+          <span class="lang-th">ขับเคลื่อนด้วยเครื่องมือชั้นนำเพื่อประสิทธิภาพ ความเสถียร และประสบการณ์ที่ดี</span>
+        </p>
+      </div>
+
+      <div class="tech-grid reveal">
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>Flutter 3.x</span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          <span>Dart 3.x</span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <span>Firebase Auth</span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>Cloud Firestore</span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span>
+            <span class="lang-en">Cross-Platform</span>
+            <span class="lang-th">ข้ามแพลตฟอร์ม</span>
+          </span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"></path><path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"></path></svg>
+          <span>
+            <span class="lang-en">Real-time Sync</span>
+            <span class="lang-th">ซิงค์เรียลไทม์</span>
+          </span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span>PWA Ready</span>
+        </div>
+        <div class="tech-badge">
+          <svg class="tech-badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>
+            <span class="lang-en">Secure by Design</span>
+            <span class="lang-th">ปลอดภัยตั้งแต่ออกแบบ</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">FAQ</span>
+        <h2>
+          <span class="lang-en">Frequently Asked <span class="text-gradient">Questions</span></span>
+          <span class="lang-th">คำถามที่<span class="text-gradient">พบบ่อย</span></span>
+        </h2>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q1">
+            <span>
+              <span class="lang-en">Is Bookcheck free to use?</span>
+              <span class="lang-th">Bookcheck ใช้ฟรีมั้ย?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="lang-en">Yes! Bookcheck is completely free and open-source under the MIT license. You can self-host it with your own Firebase project or use the public deployment.</span>
+              <span class="lang-th">ใช่ครับ! Bookcheck ฟรีทั้งหมดและเป็น open-source ภายใต้ MIT license สามารถ deploy ด้วย Firebase project ของตัวเอง หรือใช้เวอร์ชันสาธารณะได้เลย</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q2">
+            <span>
+              <span class="lang-en">Does it work on mobile phones?</span>
+              <span class="lang-th">ใช้บนมือถือได้มั้ย?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="lang-en">Absolutely! Bookcheck runs natively on Android and works on any device through the responsive web version. iOS support is planned for future releases.</span>
+              <span class="lang-th">แน่นอนครับ! Bookcheck ใช้ได้บน Android เป็นแอปเนทีฟ และบนทุกอุปกรณ์ผ่านเว็บเวอร์ชัน รองรับ iOS จะมาในอนาคต</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q3">
+            <span>
+              <span class="lang-en">How is my data stored and secured?</span>
+              <span class="lang-th">ข้อมูลถูกเก็บและรักษาความปลอดภัยอย่างไร?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="lang-en">All data is stored securely in Firebase Cloud Firestore with real-time sync across devices. Firebase Authentication ensures only you can access your collection. No API keys are ever hardcoded in the source.</span>
+              <span class="lang-th">ข้อมูลทั้งหมดเก็บอย่างปลอดภัยใน Firebase Cloud Firestore พร้อมซิงค์แบบเรียลไทม์ ระบบ Firebase Authentication รับรองว่ามีเฉพาะคุณเท่านั้นที่เข้าถึงคอลเลกชันได้ ไม่มี API key ฝังในซอร์สโค้ด</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q4">
+            <span>
+              <span class="lang-en">Can I use it without creating an account?</span>
+              <span class="lang-th">ใช้โดยไม่สมัครบัญชีได้มั้ย?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="lang-en">Yes! Guest mode lets you explore the app and see how it works. Create a free account whenever you're ready to save and sync your manga collection across devices.</span>
+              <span class="lang-th">ได้ครับ! โหมด Guest ให้คุณเข้าชมแอปและดูวิธีการทำงาน สร้างบัญชีฟรีเมื่อพร้อมจะบันทึกและซิงค์คอลเลกชันมังงะข้ามอุปกรณ์</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q5">
+            <span>
+              <span class="lang-en">Does Bookcheck support multiple languages?</span>
+              <span class="lang-th">Bookcheck รองรับหลายภาษามั้ย?</span>
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="lang-en">Yes! The app supports both English and Thai with a simple toggle. Your language preference is saved locally so it remembers your choice on every visit.</span>
+              <span class="lang-th">ใช่ครับ! แอปรองรับทั้งภาษาอังกฤษและไทย แค่กดสลับ การตั้งค่าภาษาจะบันทึกไว้ในเครื่องเพื่อจดจำตัวเลือกของคุณทุกครั้งที่เข้าใช้</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>
+          <span class="lang-en">Ready to Organize<br>Your <span class="text-gradient">Collection</span>?</span>
+          <span class="lang-th">พร้อมจัดระเบียบ<br><span class="text-gradient">คอลเลกชัน</span>ของคุณหรือยัง?</span>
+        </h2>
+        <p>
+          <span class="lang-en">Join collectors who trust Bookcheck to manage their manga and comic libraries.</span>
+          <span class="lang-th">เข้าร่วมกับนักสะสมที่ไว้วางใจ Bookcheck ในการจัดการคอลเลกชันมังงะ</span>
+        </p>
+        <a href="https://bookcheck-app.web.app" class="btn btn-primary">
+          <span class="lang-en">Launch Bookcheck</span>
+          <span class="lang-th">เปิด Bookcheck</span>
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="assets/logo.png" alt="Bookcheck" width="32" height="32">
+            <span>Bookcheck</span>
+          </div>
+          <p>
+            <span class="lang-en">Open-source manga and comic collection tracker. Built with Flutter & Firebase.</span>
+            <span class="lang-th">แอปจัดการคอลเลกชันมังงะและการ์ตูนแบบ open-source สร้างด้วย Flutter & Firebase</span>
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>
+            <span class="lang-en">Product</span>
+            <span class="lang-th">ผลิตภัณฑ์</span>
+          </h4>
+          <ul>
+            <li><a href="#features">
+              <span class="lang-en">Features</span>
+              <span class="lang-th">ฟีเจอร์</span>
+            </a></li>
+            <li><a href="#preview">
+              <span class="lang-en">Preview</span>
+              <span class="lang-th">ตัวอย่าง</span>
+            </a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>
+            <span class="lang-en">Resources</span>
+            <span class="lang-th">แหล่งข้อมูล</span>
+          </h4>
+          <ul>
+            <li><a href="https://github.com/pichaya6731503023/bookcheck" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://github.com/pichaya6731503023/bookcheck#getting-started" target="_blank" rel="noopener">
+              <span class="lang-en">Documentation</span>
+              <span class="lang-th">เอกสาร</span>
+            </a></li>
+            <li><a href="https://github.com/pichaya6731503023/bookcheck/issues" target="_blank" rel="noopener">
+              <span class="lang-en">Report Bug</span>
+              <span class="lang-th">แจ้งบัก</span>
+            </a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>
+            <span class="lang-en">Legal</span>
+            <span class="lang-th">กฎหมาย</span>
+          </h4>
+          <ul>
+            <li><a href="https://github.com/pichaya6731503023/bookcheck/blob/main/LICENSE" target="_blank" rel="noopener">
+              <span class="lang-en">MIT License</span>
+              <span class="lang-th">สัญญาอนุญาต MIT</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 Bookcheck. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="https://github.com/pichaya6731503023/bookcheck" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://bookcheck-app.web.app">
+            <span class="lang-en">Web App</span>
+            <span class="lang-th">เว็บแอป</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

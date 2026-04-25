@@ -1,1 +1,37 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"bookcheck-app","appId":"1:437794955565:android:3263782a80290f1cbf73a4","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"bookcheck-app","configurations":{"android":"1:437794955565:android:3263782a80290f1cbf73a4","web":"1:437794955565:web:b5d3acb1dfdc4898bf73a4"}}}}},"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bookcheck-app",
+          "appId": "1:437794955565:android:3263782a80290f1cbf73a4",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bookcheck-app",
+          "configurations": {
+            "android": "1:437794955565:android:3263782a80290f1cbf73a4",
+            "web": "1:437794955565:web:b5d3acb1dfdc4898bf73a4"
+          }
+        }
+      }
+    }
+  },
+  "hosting": [
+    {
+      "target": "app",
+      "public": "build/web",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        { "source": "**", "destination": "/index.html" }
+      ]
+    },
+    {
+      "target": "landing",
+      "public": "landing",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+  ]
+}

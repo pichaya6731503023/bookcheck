@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:437794955565:android:55781c3d88ee235fbf73a4",
+        "android_client_info": {
+          "package_name": "com.bookcheck.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1SRBMcNSlDyXPp2LORY07lEEYSo-cBUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:437794955565:android:3263782a80290f1cbf73a4",
         "android_client_info": {
           "package_name": "com.example.bookcheck"

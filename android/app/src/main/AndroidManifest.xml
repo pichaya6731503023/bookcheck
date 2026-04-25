@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required for Firebase and network fetching in release mode -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="bookcheck"
         android:name="${applicationName}"
